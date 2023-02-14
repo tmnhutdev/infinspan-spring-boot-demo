@@ -1,0 +1,13 @@
+package vn.ifa.study;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication(scanBasePackages = "vn.ifa.study")
+public class InfinispanDemoApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(InfinispanDemoApplication.class, args);
+	}
+
+}

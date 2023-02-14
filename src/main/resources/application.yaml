@@ -1,0 +1,8 @@
+server:
+  port: ${PORT:8080}
+infinispan:
+  embedded:
+    config-xml: config/infinispan.xml
+spring:
+  cache:
+    type: INFINISPAN

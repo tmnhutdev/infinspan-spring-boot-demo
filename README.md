@@ -1,5 +1,4 @@
 # infinspan-spring-boot-demo
-[![Build Status]
 [![License](http://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 This is a spring boot application integrate with embedded infinipsan caching, it exposes REST APIs to insert, get by id and get all data from cache. You can run multiple nodes by changing NODE_ID and PORT.

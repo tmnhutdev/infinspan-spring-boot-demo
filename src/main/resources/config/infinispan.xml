@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<infinispan
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="urn:infinispan:config:14.0 https://infinispan.org/schemas/infinispan-config-14.0.xsd
+                          urn:infinispan:server:14.0 https://infinispan.org/schemas/infinispan-server-14.0.xsd
+                          urn:infinispan:config:store:rocksdb:14.0 https://infinispan.org/schemas/infinispan-cachestore-rocksdb-config-14.0.xsd"
+	xmlns="urn:infinispan:config:14.0"
+	xmlns:server="urn:infinispan:server:14.0"
+	xmlns:rdb="urn:infinispan:config:store:rocksdb:14.0">
+
+	<cache-container name="default" statistics="true">
+		<transport initial-cluster-size="1"
+			initial-cluster-timeout="30000" />
+
+		<global-state>
+			<persistent-location path="data/${NODE_ID}" />
+		</global-state>
+
+		<jmx enabled="true" domain="vn.ifa.study" />
+		<metrics accurate-size="true"/>
+
+		<replicated-cache name="owners" mode="SYNC" statistics="true">
+			<encoding media-type="application/x-protostream" />
+			<expiration lifespan="604800000" interval="60000"/>
+			<memory when-full="REMOVE" max-count="20" />
+			<persistence passivation="false">
+				<rdb:rocksdb-store path="data" preload="true">
+					<rdb:expiration path="expired" />
+				</rdb:rocksdb-store>
+			</persistence>
+		</replicated-cache>
+	</cache-container>
+</infinispan>

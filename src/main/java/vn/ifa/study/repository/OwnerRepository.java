@@ -2,7 +2,6 @@ package vn.ifa.study.repository;
 
 import java.util.List;
 import java.util.Map.Entry;
-import java.util.stream.Collectors;
 
 import javax.annotation.PostConstruct;
 
@@ -35,7 +34,7 @@ public class OwnerRepository {
     }
     
     public List<Owner> findAll() {
-        return this.owners.entrySet().stream().map(Entry::getValue).collect(Collectors.toList());
+        return this.owners.entrySet().stream().map(Entry::getValue).toList();
     }
 
 }

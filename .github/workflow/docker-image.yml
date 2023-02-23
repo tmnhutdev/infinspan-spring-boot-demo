@@ -13,7 +13,7 @@ env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: docker.io
   # github.repository as <account>/<repo>
-  IMAGE_NAME: tmnhutdev/development
+  IMAGE_NAME: tmnhutdev/infinspan-spring-boot-demo
 
 
 

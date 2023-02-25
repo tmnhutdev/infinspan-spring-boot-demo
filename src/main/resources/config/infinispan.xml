@@ -10,8 +10,11 @@
 
 	<cache-container name="default" statistics="true">
 		<transport initial-cluster-size="1"
-			initial-cluster-timeout="30000" />
-
+			initial-cluster-timeout="30000" 
+			cluster="infinspan-spring-boot-demo" 
+			stack="kubernetes"
+			node-name="${NODE_ID}"/>
+		
 		<global-state>
 			<persistent-location path="data/${NODE_ID}" />
 		</global-state>

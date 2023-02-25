@@ -32,6 +32,7 @@ public class OwnerController {
             String id = UUID.randomUUID().toString();
             owner.setId(id);
             this.ownerRepository.save(owner);
+            log.info("Created new owner and save into cache: {}", id);
             return ResponseEntity.ok(owner.getId());
         }
         catch(Exception e) {
@@ -42,13 +43,14 @@ public class OwnerController {
     
     @GetMapping
     public ResponseEntity<List<Owner>> getAll() {
-
+        log.info("Get all of owners from cache");
         return ResponseEntity.ok(this.ownerRepository.findAll());
     }
     
     @GetMapping(value = "/{id}")
     public ResponseEntity<Owner> getById(@PathVariable String id) {
 
+        log.info("Get owner from cache by id: {}", id);
         return ResponseEntity.ok(this.ownerRepository.findById(id));
     }
 

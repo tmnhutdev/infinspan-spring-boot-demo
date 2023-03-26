@@ -18,7 +18,7 @@ public class OwnerAdapter implements Serializable {
 
     @ProtoFactory
     Owner create(String id, String fullname, int old, List<Car> ownedCars) {
-
+        
         return Owner.builder().id(id).fullname(fullname).old(old).ownedCars(ownedCars).build();
     }
 

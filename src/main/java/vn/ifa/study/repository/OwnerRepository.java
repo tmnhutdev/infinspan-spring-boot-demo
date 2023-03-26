@@ -10,6 +10,7 @@ import org.infinispan.manager.EmbeddedCacheManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import vn.ifa.study.config.CacheListener;
 import vn.ifa.study.model.Owner;
 
 @Repository
@@ -17,12 +18,15 @@ public class OwnerRepository {
     
     @Autowired
     private EmbeddedCacheManager cacheManager;
+     
+    private CacheListener cacheListener = new CacheListener();
     
     private Cache<String, Owner> owners;
     
     @PostConstruct
     public void init() {
         this.owners = this.cacheManager.getCache("owners");
+        this.owners.addListener(this.cacheListener);
     }
     
     public Owner save(Owner owner) {

@@ -6,3 +6,7 @@ infinispan:
 spring:
   cache:
     type: INFINISPAN
+jgroups.dns.query: ${JROUPS_DNS_QUERY:infinispan-cluster.develop.svc.cluster.local}
+#logging:
+#  level:
+#    org.infinispan: TRACE
